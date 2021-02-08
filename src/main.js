@@ -8,6 +8,7 @@ console.log(imageSource);
 
 window.addEventListener('load', function() {
     const rootEl = document.getElementById('app');
-    var image = new Image();
-    rootEl.appendChild(image);
+    var img = new Image();
+    img.src = imageSource;
+    rootEl.appendChild(img);
 });
