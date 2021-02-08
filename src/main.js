@@ -1,14 +1,20 @@
 import txt from 'raw-loader!./simple.txt';
 
-import imageSource from 'url-loader!./assets/noop.png';
-// import imageSource from 'url-loader!./assets/auto.jpg';
-
-console.log(txt);
-console.log(imageSource);
+import arrowSource from 'svg-url-loader!./assets/arrow-right.svg';
+import arrowCircleSource from 'svg-url-loader!./assets/arrow-circle-down.svg';
 
 window.addEventListener('load', function() {
     const rootEl = document.getElementById('app');
+    
     var img = new Image();
-    img.src = imageSource;
+    img.src = arrowSource;
+    img.width = 20;
+    img.height = 20;
     rootEl.appendChild(img);
+
+    var img1 = new Image();
+    img1.src = arrowCircleSource;
+    img1.width = 20;
+    img1.height = 20;
+    rootEl.appendChild(img1);
 });
