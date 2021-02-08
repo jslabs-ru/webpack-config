@@ -35,7 +35,6 @@ function buildWithWebpack(callback) {
 gulp.task('buildWithWebpack', buildWithWebpack);
 
 function restartServer() {
-    console.log('Restart server');
     if(appProcess) appProcess.kill();
     appProcess = fork(__dirname + '/server.js');
 
