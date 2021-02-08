@@ -13,19 +13,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.txt$/,
-                use: 'raw-loader'
-            },
-            {
-                test: /\.svg/,
-                use: {
-                    loader: 'svg-url-loader',
-                    options: {
-                        // encoding: 'base64'
-                    },
-                },
-            },
         ],
     },
     plugins: [new HtmlWebpackPlugin({
