@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const { fork } = require('child_process');
 const gulp = require('gulp');
 const runSequence = require('gulp4-run-sequence');
@@ -7,6 +8,13 @@ const rimraf = require('rimraf');
 const chalk = require('chalk');
 
 var appProcess;
+
+function writeFileToItself(filePath) {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    setTimeout(() => {
+        fs.writeFileSync(filePath, content);
+    }, 300);
+}
 
 function buildWithWebpack(callback) {
     var config = require(path.join(__dirname, 'webpack.config.js'));
@@ -38,6 +46,8 @@ function restartServer() {
 
 gulp.task('restartServer', restartServer);
 
+var i = 0;
+
 gulp.task('watch', function() {
     gulp
         .watch([
@@ -47,6 +57,12 @@ gulp.task('watch', function() {
             console.log(chalk.green('File changed:'), file);
             runSequence('buildWithWebpack', 'restartServer');
         });
+
+    /* Write file to itself only once to build & restart after gulp watch call */
+    if(i === 0) {
+        writeFileToItself(path.join(__dirname, 'src', 'main.js'));
+        i++;
+    }
 });
 
 gulp.task('cleanup', async function() {
