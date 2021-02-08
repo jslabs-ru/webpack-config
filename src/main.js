@@ -1,7 +1,7 @@
 import txt from 'raw-loader!./simple.txt';
 
-// import imageSource from 'url-loader!./assets/noop.png';
-import imageSource from 'url-loader!./assets/auto.jpg';
+import imageSource from 'url-loader!./assets/noop.png';
+// import imageSource from 'url-loader!./assets/auto.jpg';
 
 console.log(txt);
 console.log(imageSource);
