@@ -18,15 +18,13 @@ module.exports = {
                 use: 'raw-loader'
             },
             {
-                test: /\.(png|jpg|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 20000,
-                        },
+                test: /\.svg/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {
+                        // encoding: 'base64'
                     },
-                ],
+                },
             },
         ],
     },
