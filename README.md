@@ -8,5 +8,5 @@
 ## Build assets with webpack
 ```npm build```
 
-## Analize webpack compilation
+## Analyze webpack compilation
 http://webpack.github.io/analyse/ - upload stats.json
