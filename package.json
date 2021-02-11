@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp watch",
     "cleanup": "gulp cleanup",
-    "build": "npm run cleanup && webpack --config webpack.config.js",
+    "build": "npm run cleanup && webpack --profile --json=stats.json --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
