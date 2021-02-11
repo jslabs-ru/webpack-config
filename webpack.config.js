@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin')
 const webpack = require('webpack');
 const path = require('path');
 
@@ -9,13 +10,16 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].js'
+        filename: '[name].[hash:8].js'
     },
     module: {
         rules: [
         ],
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src', 'index.html')
-    })],
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src', 'index.html')
+        }),
+        new AssetsPlugin()
+    ],
 };
